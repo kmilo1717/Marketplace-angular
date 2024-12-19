@@ -1,6 +1,7 @@
 # Marketplace
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+This project about a marketplace was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5. This is a simple app that consume a Platzi API, take into acoount data consuming is a public API, so data could change suddenly
+
 
 Requirements:
 - NPM v10
