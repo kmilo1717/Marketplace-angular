@@ -1,0 +1,36 @@
+<app-header (search)="onSearch($event)"></app-header>
+<app-slider [dataProducts]="random10Products" (productToAdd)="onProductChange($event)"></app-slider>
+<app-shopping-cart [dataCart]="productsInCart" (productRemoved)="onProductRemoved($event)"></app-shopping-cart>
+
+<h2 class="text-2xl font-semibold mb-4 text-gray-800 mt-5 text-center">Products</h2>
+<div class="bg-[#e7e7e7] mt-5 p-12 flex gap-4 flex-wrap justify-center shadow-md">
+    @for (product of visibleProducts; track product.id) {
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg hover:scale-105 transition duration-300">
+            <img src="{{ product.images[0]}}" alt="Product Image" class="w-full h-48 object-cover" />
+            <div class="p-4">
+                <h3 class="text-lg font-semibold text-gray-800">{{ product.title }}</h3>
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-xl font-bold text-green-600">${{ product.price }}</span>
+                    <button class="px-4 py-2 bg-blue-300 text-white text-sm font-medium rounded hover:bg-blue-600" (click)="addProductToCart(product.id)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+    @if(visibleProducts.length === 0) {
+        <div class="text-center mt-4 block w-full">
+            <p>No se encontraron productos</p>
+        </div>
+    }
+
+    @if (visibleProducts.length < dataProducts.length && filter === '') {
+        
+        <div class="text-center mt-4 block w-full">
+            <button (click)="loadMore()"
+                class="px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-500">
+                Ver más
+            </button>
+        </div>
+    }
+</div>

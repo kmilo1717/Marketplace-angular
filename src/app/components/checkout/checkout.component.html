@@ -1,0 +1,57 @@
+<app-shopping-cart [dataCart]="productsInCart" [hideCheckoutBtn]="true"></app-shopping-cart>
+<div class="max-w-xl mx-auto p-8 bg-white shadow-md rounded-md">
+    <h2 class="text-2xl font-semibold mb-6">Shipping</h2>
+  
+    <div class="flex items-center space-x-4 mb-8">
+      <span class="flex-1 text-center text-blue-600 border-b-2 border-blue-600 pb-2">Shipping</span>
+      <span class="flex-1 text-center text-gray-500 border-b-2 pb-2">Payment</span>
+      <span class="flex-1 text-center text-gray-500 border-b-2 pb-2">Confirmation</span>
+    </div>
+  
+    <form class="space-y-6">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+          <input type="text" id="first-name" placeholder="Scott"
+            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" required />
+        </div>
+        <div>
+          <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+          <input type="text" id="last-name" placeholder="Pilgrim"
+            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" required />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4">
+        <div class="col-span-2">
+          <label for="credit" class="block text-sm font-medium text-gray-700">Credit card</label>
+          <input type="text" id="credit" placeholder="1234 5678 9012 3456"
+            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+        </div>
+        <div>
+            <label for="expiration" class="block text-sm font-medium text-gray-700">Expiration date</label>
+            <input type="text" id="expiration" name="expiration" 
+              class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+              pattern="^(0[1-9]|1[0-2])\/\d{4}$" placeholder="MM/YYYY" required />
+          </div>
+          
+      </div>
+      
+
+      <div class="flex items-center space-x-2">
+        <input type="checkbox" id="same-shipping" class="h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500">
+        <label for="same-shipping" class="text-sm text-gray-700">My shipping and billing information is the same.</label>
+      </div>
+      <div class="flex justify-between mt-6">
+        <button type="button"
+          class="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none" [routerLink]="['/']">
+          Return to Store
+        </button>
+        <button type="submit"
+          class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none">
+          Continue
+        </button>
+      </div>
+    </form>
+  </div>
+  
